@@ -20,10 +20,27 @@ for extracting features from the CT scans. The backbone of ProSENet is a 3D Resn
 ### Data Prepration
 We considered 422 NSCLC patients from TCIA to assess the proposed framework, download from [here](https:)
 
+### Environment setup
+Our experiments are conducted with Python 3.6.9, Pytorch 1.2.0, CUDA 11.5.
+```
+#create a virual environment using anaconda
+conda create -n LiteProTrans python=3.6
+#Install all dependencies:
+pip install -r requirements.txt
+```
+
+
 ### 🌻 Training and testing
 ```
+#training option 1
+CUDA_VISIBLE_DEVICES=GPU_ID python main.py --ckpt_path ./ --data_root ./data/ --alpha 0.5 --beta 0.5
+#training option 2, specify the configurations in train.sh and run
 sh train.sh
-python test.py
+
+#testing option 1
+CUDA_VISIBLE_DEVICES=GPU_ID python test.py --data_path ./data/test  --ckpt ./best.pth
+#testing option 2, specify the configurations in eval.sh and run
+sh eval.sh
 ```
 
 ## Performance
