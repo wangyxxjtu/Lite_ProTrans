@@ -47,9 +47,15 @@ parser.add_argument('--suffix',
 					default=None,
 					type=str,
 					help='Result directory path')
+parser.add_argument('--seed',
+                    default=1000,
+                    type=int,
+                    help='the random seed, 1000,2000,3000,4000,5000 are used in our experiments')
 
 args = parser.parse_args()
 
+seed = args.seed
+random.seed(seed)
 
 def evaluate():
 	#define the network

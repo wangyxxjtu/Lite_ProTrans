@@ -26,12 +26,6 @@ import wandb
 
 wandb.init(project='Lite-ProTransformer')
 
-random.seed(7)
-np.random.seed(7)
-torch.manual_seed(7)
-torch.cuda.manual_seed(7)
-torch.backends.cudnn.deterministic = True
-
 # os.environ['CUDA_LAUNCH_BLOCKING'] = "1"
 best_con = 0.
 best_acc = 1e10
@@ -65,8 +59,20 @@ parser.add_argument('--beta',
                     default=0.5,
                     type=float,
                     help='trade-off parameter')
+parser.add_argument('--seed',
+                    default=1000,
+                    type=int,
+                    help='the random seed, 1000,2000,3000,4000,5000 are used in our experiments')
 
 args = parser.parse_args()
+
+seed = args.seed
+random.seed(seed)
+np.random.seed(seed)
+torch.manual_seed(seed)
+torch.cuda.manual_seed(seed)
+torch.backends.cudnn.deterministic = True
+
 
 
 def train_one_epoch(net, data_loader, entropy_loss, optimizer, exp_lr_scheduler):

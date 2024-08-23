@@ -33,12 +33,12 @@ pip install -r requirements.txt
 ### 🌻 Training and testing
 ```
 #training option 1
-CUDA_VISIBLE_DEVICES=GPU_ID python main.py --ckpt_path ./ --data_root ./data/ --alpha 0.5 --beta 0.5
+CUDA_VISIBLE_DEVICES=GPU_ID python main.py --ckpt_path ./ --data_root ./data/ --alpha 0.5 --beta 0.5 --seed 1000
 #training option 2, specify the configurations in train.sh and run
 sh train.sh
 
 #testing option 1
-CUDA_VISIBLE_DEVICES=GPU_ID python test.py --data_path ./data/test  --ckpt ./best.pth
+CUDA_VISIBLE_DEVICES=GPU_ID python test.py --data_path ./data/test  --ckpt ./best.pth --seed 1000
 #testing option 2, specify the configurations in eval.sh and run
 sh eval.sh
 ```

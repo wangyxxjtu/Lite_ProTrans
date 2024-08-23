@@ -8,6 +8,7 @@ from PIL import Image
 import time
 import collections
 import random
+from fold5_split import fold5
 
 from scipy.ndimage import zoom
 import warnings
@@ -46,12 +47,9 @@ class DataBowl3Classifier(Dataset):
         self.candidate_box = []
         self.pbb_label = []
 
-        self.filenames = [os.path.join(root_path, idx) for idx in os.listdir(root_path)]
+        fold5_results = fold5()
+        self.filenames = fold5_results[phase]
 
-        self.filenames = list(filter(lambda item: 'GTV' in item,self.filenames))
-        # print(len(list(self.filenames)))
-
-        # label_path = "/home/yujwu/Data/NSCLC/survival_estimate/survival_est_1.6/NSCLC_Radiomic_ Lung_version3_201911.csv"
         label_path = "data/NSCLC_PROCESSED.CSV"
 
         data_frame = pandas.read_csv(label_path)
