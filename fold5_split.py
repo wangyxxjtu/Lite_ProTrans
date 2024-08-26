@@ -32,3 +32,6 @@ def fold5():
 
     '''
     return {'train':train_list, 'val':val_list, 'test':test_list}
+
+
+Hua Li, Junyan Liang, Ruiqi Wu, Runmin Cong, Wenhui Wu, Sam Tak-Wu Kwong: Stereo Superpixel Segmentation via Decoupled Dynamic Spatial-Embedding Fusion Network. IEEE Trans. Multim. 26: 367-378 (2024)

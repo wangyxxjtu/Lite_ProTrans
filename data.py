@@ -66,8 +66,7 @@ class DataBowl3Classifier(Dataset):
     def data_resample(self,image, isAugment=True):
         new_x_size = 96
         new_y_size = 96
-        new_z_size = 12
-
+        new_z_size = 8
 
         new_size = [new_x_size, new_y_size, new_z_size]
         new_spacing = [old_sz * old_spc / new_sz for old_sz, old_spc, new_sz in
